@@ -7,7 +7,6 @@ So here we go. What does this do?
 >
 What does a hypen do?
 -
->
 Okay a hyphen underneath the text on the next line of code also creates a header
 >
 Equals sign underneath the line does the same thing!
@@ -17,6 +16,7 @@ Equals sign underneath the line does the same thing!
 >Brilliant, funny...the best math teacher you never had. - *San Francisco Chronicle*.
 >
 >*I added some emphasis by using the * symbol again enclosing 'San Francisco Chronicle'* 
+> 
 >
 _Now I'll try the other emphasis which is eclosing text in two underscores_
 >
@@ -52,3 +52,5 @@ Now let's add some detail...
 + Amazing culture, extraordinarily diverse wildlife and topography, best cuisine in the world, astonishing coffee, and an Andean grittiness matched only by its close neighbours (e.g. Colombia).
 >
 # I'll pause there for now :)
+>
+*Okay so now I can edit this on R Studio on my Mac. Let's see what happens if I sync it to Github*
