@@ -1,5 +1,5 @@
 # Top ten pagan towns and cities in England and Wales
-I decided to investigate which UK cities had the highest number of pagans based on ONS census data (2011). This posed a number of small challenges such as:
+I decided to investigate which [cities in England and Wales had the highest number of pagans based on ONS census data (2011)](https://miguelrocawrites.uk/2020/10/02/top-ten-pagan-towns-cities-in-england-wales/). I excluded Scotland and Northern Ireland (for now) as they have separate statistics agencies. This posed a number of small challenges such as:
 + Sourcing the right dataset (ONS has lots!) 
 + Interrogating the data to find leads and / or an answer to my question 
 + Producing some dataviz to represent the data from different angles so I could investigate it further.
