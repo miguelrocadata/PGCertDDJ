@@ -82,7 +82,7 @@ I the dragged the cross down to fill in the empty cells in this column.
 
 Now the tricky part. I wanted to quickly fill the "Estimated pagans" column in using data from another sheet which I had copied from my first dataset based on the 2011 census.
 I had called this sheet "Top ten pagan towns 2011". This had the census data on, which I wanted in my new sheet to create a quick comparison. 
-At this point I had to look up (pun intended) a VLOOKUP tutorial on the web and follow along. [I found a great one here](https://www.youtube.com/watch?v=d3BYVQ6xIE4). **Update: I caught up on some reading this weekend and discovered that Paul addresses this in one of his books! Whoops! :)
+At this point I had to look up (pun intended) a VLOOKUP tutorial on the web and follow along. [I found a great one here](https://www.youtube.com/watch?v=d3BYVQ6xIE4). **Update: I caught up on some reading this weekend and discovered that Paul addresses this in one of his books! Whoops!** :)
 
 Following the steps I had learnt, I ended up with the following formula: 
 
