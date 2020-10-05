@@ -1,6 +1,6 @@
 # Top ten pagan towns and cities in England and Wales
 I decided to investigate which [cities in England and Wales had the highest number of pagans based on ONS census data (2011)](https://miguelrocawrites.uk/2020/10/02/top-ten-pagan-towns-cities-in-england-wales/). I excluded Scotland and Northern Ireland (for now) as they have separate statistics agencies. This posed a number of small challenges such as:
-+ Sourcing the right dataset (ONS has lots!) 
++ Sourcing the right dataset (ONS has lots!)  
 + Interrogating the data to find leads and / or an answer to my question 
 + Producing some dataviz to represent the data from different angles so I could investigate it further.
 To do this I began by using the 3 chords of datajournalism approach as described by Paul Bradshaw: Clean/Sort and/or Filter / Percentages.
@@ -51,59 +51,40 @@ The new list looked like this:
 9. Coventry
 10. Swansea
 
-I found this out by simply copying 4 columns into Google Sheets (I prefer the visual layout of this sometimes to Excel), and labelling the data as follows: 
-+ City/Town
-+ Per Capita
-+ Population
-+ Pagans (total number)
+# Update! Monday Oct 5th: Data analysis #fail! :(
+
+Sadly I discovered over the weekend that I made a fatal error in my precedeing step to arrive at a list of top ten cities per capita. I was investigating a slightly different question: What happens if you combine different census categories & count them all as "pagan"? (paganism seems to encompass other sub
+categories like heathenry / wicca / etc) - and to my horror I discovered that somehow I cleaned and/or filtered the data incorrectly when I did my initial 
+investigation. 
+
+I think I sorted the towns in cities in order of population first, then in order of pagans per capita (I think). This somehow skewed my results. 
+I retraced my steps and did the same process again with the original dataset - clean / filter / calculate. This led me to a revised list as follows:
+
+1. Hastings
+2. Stroud
+3. Lincoln
+4. Eastbourne
+5. Lancaster
+6. Norwich
+7. Worthing
+8. Swindon UA
+9. Lewes
+10. Southend-on-Sea UA
+
+This took a lot less time than my previous efforts, so I guess that's a good sign. I then continued with the following steps:
 
 With some very simple maths this allowed me to work out a rough figure per capita for each town (Pagans/Population x 100000).
 Now I had some useful data. So I played around with the Google sheets charts functions until I found some dataviz I was happy with. I also used Datawrapper to create some different angles / perspectives for comparison
 e.g. of the top ten towns & cities, what does it look like when you filter them by population size as opposed to number of pagans per capita. It helped me understand the data in different ways and I hope it would also interest my
 potential audience (at least briefly).
-## Problem 3: Population change
-I finally decided to investigate what updated figures since 2011 could tell me about how these towns & cities have changed. To do this I used a dataset Paul Bradshaw used in our workshop which was called "uk mid-year estimates...", and I created yet *another spreadsheet* to work with this data.
 
-Briefly, I cleaned, sorted, and filtered the data and then created a pivot table to find just the top ten towns & cities I was interested in. This allowed me to isolate the new population estimates for each place very quickly. 
-I created new sheets in my spreadsheet and now had a new list called "population 2019 (date of census estimates)" which had the following headers:
-+ Town/City	
-+ Population (2019)	
-+ Total change since 2011	
-+ % change	
-+ Estimated Pagans 2019
+## Problem 3: combined categories
+I finally decided to investigate what would happen if I combined the category "pagan" with others to reflect the way many pagans seem to view themselves & how experts categorise them (pagan = larger category which includes other religions).
 
-Now I got to use two functions to help me quickly move data around in my sheet to create comparisons so I could produce my final two data visualisations on Google Sheets. 
-### Get Pivot Data
+By this point I realised that I didn't actually need to use any special functions to calculate this. I just created a new column called "combined" and 
+then used the following formula to finalise my investigation: (SUM(Rows of religious categories I wanted to add up)/Row of Population)* 100000 (no space after the * but markup thinks I want to italicise the number!) 
 
-First I used GETPIVOTDATA to move the data from my pivot table into the column called "Population (2019)". This was a case of typing in the formula and using the cursor to select the area I wanted to see in the other sheet. I then hovered the cursor over the first cell I had pulled up until the black cross appeared.
-I the dragged the cross down to fill in the empty cells in this column.
+I simply sorted the data by this new row and had a new top ten. Simple! I did learn about how to use GETPIVOTDATA & VLOOKUP through my investigations last week, but in the end I didn't need them for this list and I learnt a much more important lesson: Check & clean your data meticulously (and quickly) before moving to analysis. My missteps led me down totally the wrong track! I even interviewed someone in Southend because my original data was flawed and I thought it had the highest number of pagans per capita! :) Oh dear. 
 
-### VLOOKUP
-
-Now the tricky part. I wanted to quickly fill the "Estimated pagans" column in using data from another sheet which I had copied from my first dataset based on the 2011 census.
-I had called this sheet "Top ten pagan towns 2011". This had the census data on, which I wanted in my new sheet to create a quick comparison. 
-At this point I had to look up (pun intended) a VLOOKUP tutorial on the web and follow along. [I found a great one here](https://www.youtube.com/watch?v=d3BYVQ6xIE4). **Update: I caught up on some reading this weekend and discovered that Paul addresses this in one of his books (*finding stories in spreadsheets*)! Whoops!** :)
-
-Following the steps I had learnt, I ended up with the following formula: 
-
-=VLOOKUP('Population 2019'!C2,'Top ten pagan towns 2011'!$A$2:$D$11,2,FALSE)
-
-This did exactly what I had hoped except that there were some errors. I followed the video tutorial to understand how to fix these. I discovered that (of course)
-if excel is looking for an *exact match* for a value (which is what the FALSE command does), then names (i.e. of cities) have to be exactly the same - including not having any 
-unnecessary spaces or unusual features like hyphens (One of my sheets had *Southend-on-Sea*, the other had *Southend on Sea*, for example). 
-
-Once this was cleared up, I had my new figures. Finally, to calculate the "Estimated Pagans 2019" I Googled how to express this kind of sum in excel/Google Sheets and simply added 
-the following addendum to my VLOOKUP formula: 
-+ *(1+F2)
-
-So this obviously multiplied the census data which I pulled in using VLOOKUP by 1 plus whatever percentage was in my "% change" column, increasing the number of pagans in 2011 by the same percentage as the change in population based on 2019's figures. 
-(It's F2 because I had some other geographical area code/postcode columns in my sheet: I did toy with trying to create an interactive map using this data but my current skillset wouldn't allow it as yet!) :)
-
-Phew! I could add more details about various steps I've taken this week but I think that satisfies the criteria for our directed learning task. I now have a reasonably good working 
-knowledge of how, and why to use three functions: IMPORTXML, GETPIVOTDATA, and VLOOKUP. I also have a better idea of how to create and use pivot tables.
-
-And I also have a much better idea of how to use Github Markup!
-
-I hope that all makes sense!
 
 M
