@@ -5,8 +5,8 @@ combined with Paul's tutorials and plenty of Googling to problem solve as requir
 
 I shall create a separate github walkthrough to document my work on the Sydney beaches data by R Ladies Sydney here.
 
-Today I wanted to do one simple editorial task: *import and bind multiple csv files* (lots of them) without needing to do so manually. 
-This is so I could (for example) offer an editor a long view of crime stats in an area to give useful context & do so very, very quickly.
+Today I wanted to do one simple editorial task: *import and bind multiple csv files* (lots of them: 2 years worth of Cambridgeshire Police data) without needing to do so manually. 
+This is so I could (for example) offer an editor a long view of crime stats in an area to give useful context to a story & do so very, very quickly. It could also reveal more important longer term trends which could illuminate a story.
 
 I have found a way to do just that. 
 Here we go:
@@ -22,7 +22,7 @@ library(plyr)
 library(readr)
 
 ```
-### First I will make a list and import all of the files into my session: ### 
+### Next I will make a list and import all of the files into my session: ### 
 
 To do that I tried [this approach](https://datascienceplus.com/how-to-import-multiple-csv-files-simultaneously-in-r-and-create-a-data-frame/)
 
@@ -42,9 +42,9 @@ That worked really well. I'm impressed. Next step:
 dat_csv = ldply(myfiles, read_csv)
 dat_csv
 ```
-Hmm, I ran into some inexplicable problems with this so time for option 2:
+Hmm, I ran into some inexplicable problems with this so time for option 2 ( I shall figure out what went wrong here another time):
 
-Another approach I'm now going to attempt is a magical super-formula I discovered earlier, which uses the **Pipe** method. See my other github page using the 
+The approach I'm now going to attempt is a magical **super-formula** I discovered earlier, which uses the *Pipe* method. See my other github page using the 
 R Ladies Sydney tutorials for more details. I am learning a lot from these walkthroughs! For instance, I didn't know how to use *pipe* before, but now I do. 
 Let's see if it helps.
 
@@ -81,15 +81,18 @@ Success! At last. Not sure what happened with my 1st effort to import multiple f
 dim(Combinedpolicedata)
 
 ```
+This allows me to see the dimensions of the dataset.
 ```{r}
 summary(Combinedpolicedata)
 ```
+As covered by Paul's tutorials & elsewhere. Very useful.
 ```{r}
 str(Combinedpolicedata)
 ```
 ```{r}
 glimpse(Combinedpolicedata)
 ```
+Really handy tool! Glimpse presents a snapshot of the data in a helpful way which is different to summary / str / dim.
 ```{r}
 head(Combinedpolicedata)
 ```
@@ -170,7 +173,9 @@ Now let's see what it can do...
 ggplot(violentsexburglary) +
   geom_bar(aes(x=crime_type))
 ```
-It did produce a column chart but this hasn't imported into Github markdown for some reason. Oh well! I'll keep working on this as the weeks roll on.
+It did produce a column chart which looks like this: 
+
+[Simple column chart](https://github.com/miguelrocadata/PGCertDDJ/blob/Screenshots/Screenshot%202020-10-19%20at%2016.29.28.png)
 
 ## Percentages?
 I'll try manually first... seems simple enough. I did a count of each type of offence before... so based on this subset:
