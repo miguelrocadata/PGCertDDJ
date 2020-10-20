@@ -114,7 +114,7 @@ So now I've reordered the dataframe with my 3 selected columns at the front. Bli
 ## Pipe %>%
 First I'm going to clean my old "environment", in the top right window, to start over, as it were. I will then run my original "beaches <- read_csv" code to reimport the data I want into an object.
 
-First I'm going to "pipe" the original data into a new object using a series of operations. This will essentially do all of the previous operations I did separately, in one go. Then write the data to a csv file.
+Next I'm going to "pipe" the original data into a new object using a series of operations. This will essentially do all of the previous operations I did separately, in one go. Then write the data to a csv file.
 ```{r}
 cleanbeaches <- beaches %>%
   clean_names() %>% 
